@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:ngo_app/const/colors.dart';
 
+import 'package:ngo_app/const/const.dart';
 
-  Widget floatingButton() {
+Widget floatingButton() {
     return Stack(
       children: [
         Container(

@@ -5,9 +5,9 @@ const appName = "NGO Loan",
     nameHint = "Full Name",
     mobileHint = "Mobile Number",
     districtHint = "District",
-    gender = "Gender",
+    gender = "Gender :",
     female = "Female Only",
-    policy = "By continuing you accept our Privacy Policy and Term of Use",
+    policy = "By continuing you accept our Privacy \nPolicy and Term of Use",
     continueBtn = "Continue";
 
 

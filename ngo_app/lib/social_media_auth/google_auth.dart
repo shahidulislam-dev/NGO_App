@@ -205,7 +205,7 @@ class _SignInDemoState extends State<SignInDemo> {
       );
     } else {
       // The user is NOT Authenticated
-      return Column(
+      return const Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           Text('You are not currently signed in.'),
