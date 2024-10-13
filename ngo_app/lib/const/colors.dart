@@ -11,6 +11,7 @@ const red = Color.fromRGBO(255, 115, 115, 1.0);
 const green = Color.fromRGBO(52, 168, 83, 1.0);
 const borderColor = Color.fromRGBO(196, 196, 196, 1);
 const iconColor = Color.fromRGBO(2, 177, 241, 0.478);
+const fontsLight = Color.fromRGBO(134, 146, 166, 1);
 
 // Your existing colors and gradient
 const gradientBackground = LinearGradient(

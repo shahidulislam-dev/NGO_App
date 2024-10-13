@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:ngo_app/const/colors.dart';
-import '../models/districts.dart';
+import '../model/districts.dart';
 import 'package:velocity_x/velocity_x.dart'; // For text styling
 
 class CustomDropdowns extends StatefulWidget {
@@ -20,7 +20,7 @@ class _CustomDropdownState extends State<CustomDropdowns> {
 
   // Load districts from JSON file
   Future<void> getDistricts() async {
-      var data = await rootBundle.loadString("lib/models/districts.json");
+      var data = await rootBundle.loadString("lib/service/districts.json");
       var jsonData = districtsModelFromJson(data); // Ensure this is correct
       var districtNames = jsonData.districts.map((e) => e.name).toList();
       districtsList.assignAll(districtNames);

@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:ngo_app/const/colors.dart';
 class CustomTextfield extends StatelessWidget {
   final TextEditingController controller;
-  final TextInputType keyboardType;
+  final TextInputType? keyboardType;
   final bool? isObscureText;
   final String? obscureCharacter;
   final String? hintText;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
 
-  const CustomTextfield({super.key, required this.controller, this.keyboardType = TextInputType.text, this.isObscureText = false, this.obscureCharacter = "*", required this.hintText, this.prefixIcon, this.suffixIcon});
+  const CustomTextfield({super.key, required this.controller, this.keyboardType, this.isObscureText = false, this.obscureCharacter = "*", required this.hintText, this.prefixIcon, this.suffixIcon});
 
   @override
   Widget build(BuildContext context) {

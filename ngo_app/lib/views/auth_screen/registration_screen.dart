@@ -1,5 +1,7 @@
+import 'package:get/get.dart';
 import 'package:ngo_app/const/const.dart';
 import 'package:ngo_app/const/styles.dart';
+import 'package:ngo_app/views/auth_screen/login_screen.dart';
 import 'package:ngo_app/widgets_common/bg_widget.dart';
 import 'package:ngo_app/widgets_common/custom_button.dart';
 import 'package:ngo_app/widgets_common/custom_checkbox.dart';
@@ -36,7 +38,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   20.heightBox,
                   CustomTextfield(controller: nameController, hintText: nameHint, prefixIcon: const Icon(Icons.person, color: iconColor,size: 40),),
                   20.heightBox,
-                  CustomTextfield(controller: nameController, hintText: mobileHint, prefixIcon: const Icon(Icons.phone_in_talk, color: iconColor,size: 40),),
+                  CustomTextfield(controller: nameController,keyboardType: TextInputType.number, hintText: mobileHint, prefixIcon: const Icon(Icons.phone_in_talk, color: iconColor,size: 40)),
                   20.heightBox,
                   const CustomDropdowns(),
                   17.heightBox,
@@ -61,7 +63,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   const CustomCheckbox(),
                 ],
               ),
-              customButton(onPressed: (){}, text: "Continue")
+              Positioned(
+                  bottom: 40,
+                  left: 5,
+                  right: 5,
+                  child: customButton(onPressed: (){Get.to(const LoginScreen());}, text: "Continue"))
             ]
           ),
         )

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:ngo_app/const/colors.dart';
-import 'package:ngo_app/models/districts.dart';
+import 'package:ngo_app/model/districts.dart';
 import 'package:animated_custom_dropdown/custom_dropdown.dart'; // Import the custom dropdown package
 import 'package:velocity_x/velocity_x.dart'; // For text styling
 
