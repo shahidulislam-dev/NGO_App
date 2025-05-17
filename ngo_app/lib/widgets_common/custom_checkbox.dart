@@ -8,14 +8,13 @@ class CustomCheckbox extends StatefulWidget {
 }
 
 class _CustomCheckboxState extends State<CustomCheckbox> {
-  bool isSelected = false; // Manage state internally
+  bool isSelected = false;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 40, right: 40),
+      padding: const EdgeInsets.symmetric(horizontal: 40),
       child: Row(
-
         children: [
           Container(
             width: 20,
@@ -45,11 +44,16 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
               ),
             ),
           ),
-          20.widthBox,
-          policy.text.white.align(TextAlign.left).make()
+          const SizedBox(width: 20),
+          const Expanded(
+            child: Text(
+              policy,
+              textAlign: TextAlign.left,
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
         ],
       ),
     );
   }
 }
-

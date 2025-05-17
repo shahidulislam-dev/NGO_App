@@ -6,10 +6,11 @@ class CustomTextfield extends StatelessWidget {
   final bool? isObscureText;
   final String? obscureCharacter;
   final String? hintText;
+  final bool? enabled;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
 
-  const CustomTextfield({super.key, required this.controller, this.keyboardType, this.isObscureText = false, this.obscureCharacter = "*", required this.hintText, this.prefixIcon, this.suffixIcon});
+  const CustomTextfield({super.key,  required this.controller, this.keyboardType, this.isObscureText = false, this.obscureCharacter = "*", required this.hintText, this.prefixIcon, this.suffixIcon, this.enabled});
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +21,7 @@ class CustomTextfield extends StatelessWidget {
       keyboardType: keyboardType,
       obscureText: isObscureText!,
       obscuringCharacter: obscureCharacter!,
+      enabled: enabled,
       style: const TextStyle(fontSize: 18),
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.only(top: 15.0, bottom: 15, left: 10),

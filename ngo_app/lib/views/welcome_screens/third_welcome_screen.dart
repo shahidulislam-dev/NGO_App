@@ -1,3 +1,4 @@
+
 import 'package:get/get.dart';
 import 'package:ngo_app/const/const.dart';
 import 'package:ngo_app/views/auth_screen/registration_screen.dart';
@@ -10,8 +11,17 @@ class ThirdWelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: floatingButton().onTap((){Get.to(const RegistrationScreen());}),
-      body: welcomeScreen(imagePath: thirdWelcome, text1:"No stress with payments" , text2: "and loan process"),
+      floatingActionButton: GestureDetector(
+        onTap: () {
+          Get.to(const RegistrationScreen());
+        },
+        child: floatingButton(), // Make sure this widget is also VelocityX-free
+      ),
+      body: welcomeScreen(
+        imagePath: thirdWelcome,
+        text1: "No stress with payments",
+        text2: "and loan process",
+      ),
     );
   }
 }

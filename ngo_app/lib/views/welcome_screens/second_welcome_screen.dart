@@ -1,3 +1,4 @@
+
 import 'package:get/get.dart';
 import 'package:ngo_app/const/const.dart';
 import 'package:ngo_app/views/welcome_screens/third_welcome_screen.dart';
@@ -10,8 +11,17 @@ class SecondWelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: floatingButton().onTap((){Get.to(const ThirdWelcomeScreen());}),
-      body: welcomeScreen(imagePath: secondWelcome, text1: "helps you cover not only the", text2:"expenses towards your course fees")
+      floatingActionButton: GestureDetector(
+        onTap: () {
+          Get.to(const ThirdWelcomeScreen());
+        },
+        child: floatingButton(),
+      ),
+      body: welcomeScreen(
+        imagePath: secondWelcome,
+        text1: "helps you cover not only the",
+        text2: "expenses towards your course fees",
+      ),
     );
   }
 }

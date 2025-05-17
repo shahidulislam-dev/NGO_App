@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:ngo_app/const/colors.dart';
 import '../model/districts.dart';
-import 'package:velocity_x/velocity_x.dart'; // For text styling
 
 class CustomDropdowns extends StatefulWidget {
   const CustomDropdowns({super.key});
@@ -18,19 +17,17 @@ class _CustomDropdownState extends State<CustomDropdowns> {
   final dropValue = ''.obs;
   final TextEditingController textEditingController = TextEditingController();
 
-  // Load districts from JSON file
   Future<void> getDistricts() async {
-      var data = await rootBundle.loadString("lib/service/districts.json");
-      var jsonData = districtsModelFromJson(data); // Ensure this is correct
-      var districtNames = jsonData.districts.map((e) => e.name).toList();
-      districtsList.assignAll(districtNames);
-
+    var data = await rootBundle.loadString("lib/service/districts.json");
+    var jsonData = districtsModelFromJson(data);
+    var districtNames = jsonData.districts.map((e) => e.name).toList();
+    districtsList.assignAll(districtNames);
   }
 
   @override
   void initState() {
     super.initState();
-    getDistricts(); // Load districts in initState
+    getDistricts();
   }
 
   @override
@@ -44,12 +41,14 @@ class _CustomDropdownState extends State<CustomDropdowns> {
     return Obx(() {
       return Container(
         padding: const EdgeInsets.only(left: 2.0),
-        decoration: const BoxDecoration(
-          color: Colors.transparent,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          border: Border.all(color: borderColor, width: 1.5),
+          borderRadius: BorderRadius.circular(8), // Same as roundedSM
         ),
         child: Row(
           children: [
-            const Icon(Icons.location_on, color: iconColor, size: 40), // Icon on the left
+            const Icon(Icons.location_on, color: iconColor, size: 40),
             Expanded(
               child: DropdownButtonHideUnderline(
                 child: DropdownButton2<String>(
@@ -61,7 +60,6 @@ class _CustomDropdownState extends State<CustomDropdowns> {
                       color: darkGrey,
                     ),
                   ),
-
                   items: districtsList
                       .map((item) => DropdownMenuItem(
                     value: item,
@@ -69,7 +67,7 @@ class _CustomDropdownState extends State<CustomDropdowns> {
                       item,
                       style: const TextStyle(
                         fontSize: 18,
-                        color: darkGrey
+                        color: darkGrey,
                       ),
                     ),
                   ))
@@ -82,10 +80,10 @@ class _CustomDropdownState extends State<CustomDropdowns> {
                   },
                   buttonStyleData: const ButtonStyleData(
                     padding: EdgeInsets.only(right: 16),
-                    height: 50, // Adjusted height
+                    height: 50,
                     width: 200,
                   ),
-                  dropdownStyleData:const DropdownStyleData(
+                  dropdownStyleData: const DropdownStyleData(
                     maxHeight: 250,
                     decoration: BoxDecoration(
                       color: white,
@@ -93,7 +91,7 @@ class _CustomDropdownState extends State<CustomDropdowns> {
                         bottomLeft: Radius.circular(15.0),
                         bottomRight: Radius.circular(15.0),
                       ),
-                    )
+                    ),
                   ),
                   menuItemStyleData: const MenuItemStyleData(
                     height: 40,
@@ -103,20 +101,14 @@ class _CustomDropdownState extends State<CustomDropdowns> {
                     searchInnerWidgetHeight: 50,
                     searchInnerWidget: Container(
                       height: 50,
-                      padding: const EdgeInsets.only(
-                        top: 8,
-                        bottom: 4,
-                        right: 8,
-                        left: 8,
-                      ),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 6, horizontal: 8),
                       child: TextFormField(
                         controller: textEditingController,
                         decoration: InputDecoration(
                           isDense: true,
                           contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 10,
-                            vertical: 8,
-                          ),
+                              horizontal: 10, vertical: 8),
                           hintText: 'Search for a district...',
                           hintStyle: const TextStyle(fontSize: 16),
                           border: OutlineInputBorder(
@@ -126,10 +118,12 @@ class _CustomDropdownState extends State<CustomDropdowns> {
                       ),
                     ),
                     searchMatchFn: (item, searchValue) {
-                      return item.value.toString().toLowerCase().contains(searchValue.toLowerCase());
+                      return item.value
+                          .toString()
+                          .toLowerCase()
+                          .contains(searchValue.toLowerCase());
                     },
                   ),
-                  // Clear the search value when you close the menu
                   onMenuStateChange: (isOpen) {
                     if (!isOpen) {
                       textEditingController.clear();
@@ -140,7 +134,7 @@ class _CustomDropdownState extends State<CustomDropdowns> {
             ),
           ],
         ),
-      ).box.color(Colors.white).border(color: borderColor, width: 1.5).roundedSM.make(); // Styled container
+      );
     });
   }
 }

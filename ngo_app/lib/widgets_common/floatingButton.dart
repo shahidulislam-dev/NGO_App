@@ -11,7 +11,7 @@ Widget floatingButton() {
             gradient: gradientBackground,
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
-              color: Colors.white, // 2px solid white border
+              color: Colors.white,
               width: 2,
             ),
             boxShadow: [
@@ -25,8 +25,8 @@ Widget floatingButton() {
           child: const Center(
             child: Icon(
               Icons.arrow_forward,
-              size: 40, // Size of the icon
-              color: Colors.white, // Icon color
+              size: 40,
+              color: Colors.white,
             ),
           ),
         ),

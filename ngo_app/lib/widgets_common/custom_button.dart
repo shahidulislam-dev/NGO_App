@@ -1,16 +1,17 @@
 import 'package:ngo_app/const/const.dart';
 
-Widget customButton({onPressed, text}){
+Widget customButton({required VoidCallback? onPressed, required String text}) {
   return Container(
-    decoration: BoxDecoration(boxShadow: [
-      BoxShadow(
-        color: const Color(0xFF2083C3).withOpacity(0.8),
-        offset: const Offset(0, 5),
-        blurRadius: 10,
-      ),
-    ],),
+    decoration: BoxDecoration(
+      boxShadow: [
+        BoxShadow(
+          color: const Color(0xFF2083C3).withOpacity(0.8),
+          offset: const Offset(0, 5),
+          blurRadius: 10,
+        ),
+      ],
+    ),
     child: ElevatedButton(
-
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.all(0),
@@ -27,14 +28,20 @@ Widget customButton({onPressed, text}){
             color: Colors.white,
             width: 2,
           ),
-
         ),
         child: Container(
           height: 50,
           alignment: Alignment.center,
-          child: "$text".text.white.size(20).bold.make(),
+          child: Text(
+            text,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
       ),
     ),
-      ),
   );
 }
